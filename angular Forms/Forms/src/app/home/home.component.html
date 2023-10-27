@@ -1,0 +1,56 @@
+<div style="background-color: lightpink;">
+  <header>
+    <input type="checkbox" id="check">
+    <label for="check" class="bx bx-menu" id="menu_icon"> </label>
+    <ul class="navbar">
+      <li><a href="#"> Product </a></li>
+      <li><a href="#"> Company </a></li>
+      <li><a href="#"> Community </a></li>
+      <li><a href="#"> Pricing</a></li>
+    </ul>
+    <div class="btn_first">
+      <button class="sigin_btn"  routerLink="/login">Sigin</button>
+      <button class="getstarted-btn">Get Started Free</button>
+    </div>
+  </header>
+  <div class="plans_text">
+      <h1> Plans for every stage of your <br> creator journey</h1>
+  </div>
+  <div class="start_building">
+      <p> Start building for free and pay as you grow</p>
+      <div class="toggle-btn">
+        <span style="margin: 0.8em;">Monthly</span>
+        <label class="switch">
+            <input type="checkbox" id="checkbox" [(ngModel)]="isYearly" (change)="Pricing()">
+            <span class="slider round"></span>
+        </label>
+        <span style="margin: 0.8em">Yearly</span>
+    </div>
+  </div>
+  <section class="container py-5 ">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 mb-4 " *ngFor="let plan of pricingPlans">
+            <div class="card h-100 d-flex">
+                <div class="card-body">
+                    <h5 class="card-title text-uppercase">{{ plan.title }}</h5>
+                    <h5 class="text-muted">{{ plan.type }}</h5>
+                    <div class="price-symbol card-price">
+                        <h6 class="card-price text1"> ₹ {{ plan.price }}</h6>
+                    </div>
+                    <p>{{ plan.description }}</p>
+                    <p >Everything in intro plus:</p>
+                    <ul class="fa-ul">
+                        <li *ngFor="let feature of plan.features">
+                            <span class="fa-li"><i class="fa fa-check-circle text-muted"></i></span>{{ feature }}
+                        </li>
+                    </ul>
+                    <div class="d-grid "  >
+                        <button (click)="routeUrl(plan.id)" class="btn btn-primary text-uppercase" style="background-color: mediumpurple;" >Get Started</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>
+

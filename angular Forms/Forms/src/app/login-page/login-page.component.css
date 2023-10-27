@@ -1,0 +1,20 @@
+.mb-5{
+    margin-top: 5rem;
+}
+.card-body{
+    margin-left: 38px !important;
+}
+.form-control{
+    width: 23rem !important;
+}
+.footer-text{
+    margin-top: 8rem;
+    margin-left: 5rem;
+}
+.forget-password{
+    margin-left: 7rem;
+    cursor: pointer;
+}
+section{
+    height: 113vh;
+}

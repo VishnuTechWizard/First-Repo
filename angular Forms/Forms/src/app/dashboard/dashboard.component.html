@@ -1,0 +1,45 @@
+
+<div class="container">
+  <div class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+  <img src="../../assets/images/iksana.png" class="logo" alt="">
+     <div class="search_bar">
+  <i class="fa-solid fa-magnifying-glass" style="color: #202124;"></i> 
+  <input type="search" class="search" placeholder="search" >
+     </div>
+     <div>
+      <div class="menu"> MENU </div>
+      <ul class="menu_list">
+        <li> Home </li><br>
+        <li> Order </li><br>
+        <li> Products </li>
+      </ul>
+     </div>
+  </div>  
+  
+  </div>
+
+  <div class="content" [ngClass]="{'shifted': isSidebarOpen}">
+    <div class="navbar">
+    <button class="btn" (click)="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+    <div class="right_icon" >
+      <i class="fa-regular fa-bell"></i>
+      <i class="fa-solid fa-gear" style="color: #202124;"></i>
+      <i class="fa-solid fa-headset"></i>
+      <div class="dropdown" (click)="toggleDropdown()">
+        <button class="user_btn"><i class="fa-solid fa-user" style="color: whitesmoke;"></i></button>
+        <div [class.show]="isDropdownOpen" class="dropdown-menu">
+          <h3> {{email}}  </h3>
+         <div class="un_container">
+          <h3> Hi, {{username}}!  </h3>
+          <button class="logout_btn" (click)="logout()"> Logout </button> 
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="right_side">
+      <h1> home </h1>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque neque quae nobis esse itaque sit nihil, autem voluptates omnis eveniet atque voluptatibus debitis, labore iste quo. Inventore nulla natus eveniet. </p>
+    </div>
+    </div>
+

@@ -1,0 +1,248 @@
+
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  margin-left: 3rem; 
+}
+
+.navbar{
+  list-style-type: none;
+  gap: 2rem;
+}
+
+.navbar a{
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+}
+
+/*  box-icon */
+#menu_icon{
+ font-size: 30px;
+ cursor: pointer;
+ display: none;
+}
+#check{
+display: none;
+}
+/* header buttons */
+.btn_first{
+  margin-left: 34rem;
+}
+
+.user-btn{
+  margin-right: 10px;
+    border: none;
+    border-radius: 10px;
+    padding: 4px 10px;
+}
+
+
+.sigin_btn{
+  padding: 4px 15px;
+  background: snow;
+  border: none;
+  border-radius: 6px;
+  margin-right: 19px;
+}
+
+.login_btn:hover{
+  background: antiquewhite;
+
+}
+
+/*  plans heading tag */
+.plans_text{
+margin-top: 3rem;
+margin-left:3rem;
+}
+.getstarted-btn{
+  padding: 4px 15px;
+  background: white;
+  border-radius: 7px;
+}
+.start_building{
+  display: flex;
+ justify-content: space-between;
+ margin-top: 30px;
+ margin-left: 3rem;
+ align-items: baseline;
+}
+
+.toggle-btn input,label{
+display: inline-block;
+vertical-align:middle ;
+margin: 10px 0px;
+
+}
+.switch{
+position: relative;
+display: inline-block;
+width: 57px;
+height: 29px;
+}
+.switch input{
+opacity: 0;
+width: 0;
+height: 0;
+}
+.slider{
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #1e2321;
+}
+
+.slider:before{
+position: absolute;
+content: '';
+height: 21px;
+width: 21px;
+left: 4px;
+bottom: 4px;
+background-color: #fff;
+transition: 0.4s;
+}
+input:checked + .slider{
+background-color: #00cc99;
+}
+input:focus + .slider{
+box-shadow: 0 0 1px #50bfe6;
+}
+input:checked + .slider:before{
+transform:translateX(26px);
+}
+.slider.round{
+border-radius: 34px;
+}
+.slider.round:before{
+border-radius:50%;
+}
+.card-price{
+  font-size: 24px;
+}
+.card {
+  transition: all 0.5s;
+}
+
+  .card:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+  .card-title {
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-ul{
+  flex-grow: 1;
+}
+
+  /* media qureis */
+  @media (max-width:1200px){
+   #first_box{
+    margin-top: 10.3rem;
+   }
+   #second_box{
+    margin-top: 7rem;
+   }
+  }
+  @media (max-width:991px){
+    #first_box{
+      margin-top: 4.89rem;
+    }
+    #second_box{
+      margin-top: 4.40rem;
+    }
+    .plans_text{
+      margin-left: 1.05rem;
+    }    
+    .start_building{
+      margin-left: 1.05rem;
+    }
+  
+  }
+  @media(min-width:1400){
+    #first_box{
+      background-color: red!important;
+    }
+  
+  }
+  
+  @media (max-width:1165px){
+  
+   header{
+    justify-content: space-around; 
+    margin: 0px;
+  }
+  
+  .btn_first{
+    margin: 0px;
+  }
+  section{
+    margin: 5px!important;
+  
+  }
+  }
+
+  @media (max-width:693px){
+  
+  #menu_icon{
+    display: block;
+  }
+  
+  .navbar{
+    position: absolute!important;
+    top: 3rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: bisque;
+    color: white;
+    transition: all 0.7s;
+  }
+  #check:checked~ul{
+    top: -15rem;
+  }
+  
+  }
+  
+  @media (max-width:608px){
+  .getstarted-btn{
+    padding: 2px;
+  }
+
+  
+  }
+  @media (max-width:552px){
+  
+  .start_building{
+    flex-direction: column;
+  }
+  .toggle-btn{
+    display: flex;
+    align-self: flex-end;
+    margin-top: 20px;
+  }
+  
+  }
+  
+  
+
+
+
+
+
+

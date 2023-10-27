@@ -1,0 +1,30 @@
+<div class="card-container">
+<div class="back_page">
+  <a  routerLink="/home">
+    <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;&nbsp;back</a>
+</div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title text-uppercase" id="planName"> {{detailArr[0].title}} </h5>
+      <h5 class="text-muted" id="plans"> {{detailArr[0].type}} </h5>
+      <div class="price-symbol card-price">
+        <h4 class="card-price" id="text1">
+          ₹ {{priceVal}}
+        </h4>
+      </div>
+      <p id="description"> {{detailArr[0].description  }} </p>
+      <p>Features:</p>
+      <ul id="features" class="fa-ul">
+        <li *ngFor="let feature of detailArr[0].features">
+          <span class="fa-li"><i class="fa fa-check-circle text-muted"></i></span>
+          {{ feature }}
+        </li>
+      </ul>
+      <div class="d-grid ">
+        <button (click)="plansDetl()"   class="btn btn-primary text-uppercase" style="background-color: mediumpurple;" > Subscribe </button>
+    </div>
+    </div>
+  </div>
+</div>
+
+

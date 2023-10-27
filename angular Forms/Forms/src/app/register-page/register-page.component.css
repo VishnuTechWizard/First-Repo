@@ -1,0 +1,38 @@
+h2{
+    color: white;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+input{
+    height: 3rem;
+}
+/* .text-danger{
+    margin-bottom: 1rem;
+} */
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
+}
+.bg-dark{
+    height: 110%;
+
+}
+.container{
+    width: 40%;
+    height: 40.70rem;
+    padding-top: 3rem;
+    
+}
+.btn{
+    margin-top: 2rem;
+}
+.login{
+    color: white;
+    margin-top: 5rem;
+    text-align: center;
+}
+label{
+    color: white;
+}
+small{
+    color: red;
+}

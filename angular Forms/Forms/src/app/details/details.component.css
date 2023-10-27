@@ -1,0 +1,51 @@
+.card-container{
+    background-color: lightpink;
+    height: 44.2rem;
+}
+
+.card{
+    top: 11rem;
+    max-width: 35%;
+    left: 29rem;
+}
+
+.card-body{
+    background-color: aliceblue;
+}
+.card-title {
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: bold;
+  }
+  
+.card-price{
+    font-size: 24px;
+  }
+
+.btn{
+    margin-top: 10px;
+}
+
+.back_page{
+    cursor: pointer;
+    position: absolute;
+    top: 6%;
+    left: 3%;
+}
+
+a{
+    text-decoration: none !important;
+    color: black !important;
+    padding-right: 7rem;
+    margin-top: 18rem;
+}
+
+@media (max-width:1000px){
+    .card{
+        left: 10rem;
+    }
+
+   .next_page{
+    padding-right: 10remem;
+   }
+}

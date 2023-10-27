@@ -1,0 +1,32 @@
+<div class="bg-dark">
+<div class="container">
+    <h2>Registration Form</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text"  class="form-control" id="username" formControlName="username">
+      </div><br>
+
+      <div class="form-group">
+        <label for="email">Email </label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+      </div><br>
+
+      <div class="form-group">
+        <label for="password">Password </label>
+        <input type="password"  class="form-control" id="password" formControlName="password">
+   
+      </div>
+
+      <div class="d-grid gap-2">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+
+    <div class="login">
+        Already Have an Account? <a routerLink="../login">Login.</a>
+    </div>
+
+    </form>
+  </div>
+</div>
