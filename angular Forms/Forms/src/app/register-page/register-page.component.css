@@ -6,16 +6,18 @@ h2{
 input{
     height: 3rem;
 }
-/* .text-danger{
-    margin-bottom: 1rem;
-} */
+
+.iti{
+    display: block;
+}
+
 input.ng-invalid.ng-touched{
     border: 1px solid red;
 }
 .bg-dark{
-    height: 110%;
-
+    height: 100vh;
 }
+
 .container{
     width: 40%;
     height: 40.70rem;

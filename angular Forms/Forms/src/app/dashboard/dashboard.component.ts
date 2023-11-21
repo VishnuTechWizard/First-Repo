@@ -18,9 +18,12 @@ export class DashboardComponent {
 logout(){
   localStorage.removeItem("userToken");
   localStorage.removeItem("username");
-  localStorage.removeItem("Email");
   this.toastr.warning("Logout Sucessfully")
   this.router.navigate(['login']);
+  localStorage.removeItem('registrationData')
+  localStorage.removeItem('mobileno')
+  localStorage.removeItem('user_id');
+  localStorage.removeItem("formId")
 }
 
 isDropdownOpen = false;

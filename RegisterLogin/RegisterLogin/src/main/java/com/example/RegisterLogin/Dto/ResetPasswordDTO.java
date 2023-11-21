@@ -32,7 +32,6 @@ public class ResetPasswordDTO {
 
 	public ResetPasswordDTO() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public ResetPasswordDTO(String email, String newPassword, String confirmPassword) {

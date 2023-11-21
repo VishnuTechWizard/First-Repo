@@ -50,13 +50,21 @@ public class LoginResponse<T> {
     }
 
     public static class Data {
+    	private String id;
         private String username;
         private String token;
         private boolean status;
 
-    
+        
+        public String getId() {
+			return id;
+		}
 
-        public String getUsername() {
+		public void setId(String id) {
+			this.id = id;
+		}
+
+		public String getUsername() {
             return username;
         }
 
@@ -80,15 +88,14 @@ public class LoginResponse<T> {
 			this.status = status;
 		}
 
-		public Data(String username, String token, boolean status) {
+		public Data(String id, String username, String token, boolean status) {
 			super();
+			this.id = id;
 			this.username = username;
 			this.token = token;
 			this.status = status;
 		}
-        
-
-        
+   
     }
 }
 

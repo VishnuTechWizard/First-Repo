@@ -1,26 +1,31 @@
 <div class="bg-dark">
 <div class="container">
     <h2>Registration Form</h2>
-    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="registrationForm" >
 
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text"  class="form-control" id="username" formControlName="username">
+        <input type="text"  class="form-control" id="username"   formControlName="username">
       </div><br>
 
       <div class="form-group">
         <label for="email">Email </label>
-        <input type="email" class="form-control" id="email" formControlName="email">
+        <input type="email" class="form-control" id="email" formControlName="email"  >
       </div><br>
 
       <div class="form-group">
-        <label for="password">Password </label>
-        <input type="password"  class="form-control" id="password" formControlName="password">
-   
-      </div>
+        <label for="password"> Password </label>
+        <input type="password"  class="form-control" id="password" formControlName="password" required  >
+      </div><br>
 
+      <div class="form-group">
+        <label for="mobileno"> Mobileno </label>
+        <input type="tel"  class="form-control" id="mobileno" formControlName="mobileno" required >
+      </div><br>
+
+    
       <div class="d-grid gap-2">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
     </div>
 
     <div class="login">

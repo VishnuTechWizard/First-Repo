@@ -14,6 +14,7 @@ public class User {
 	private String username;
 	private String email;
 	private String password;
+	private String mobileno;
 	private boolean status;
 
 
@@ -61,18 +62,23 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getMobileno() {
+		return mobileno;
+	}
 
-	public User(String id, String username, String email, String password, boolean status) {
+	public void setMobileno(String mobileno) {
+		this.mobileno = mobileno;
+	}
+
+	public User(String id, String username, String email, String password, String mobileno, boolean status) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.mobileno = mobileno;
 		this.status = status;
 	}
-	
-
-
-
 
 }

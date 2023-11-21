@@ -35,7 +35,6 @@ export class ForgotPasswordComponent {
       localStorage.setItem("email", data.email);
       this.link=true;      
     }
-
   })
 
  }

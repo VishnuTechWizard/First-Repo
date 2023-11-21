@@ -1,14 +1,44 @@
-.mb-5{
-    margin-top: 5rem;
+
+.card{
+    height: 100vh;
+    background-color: antiquewhite;
 }
-.card-body{
-    margin-left: 38px !important;
+
+.login{
+    margin-top: 2rem;
+    margin-left: 14rem;
 }
+
+.logintype{
+    margin-top: 3rem;
+    margin-left: 5rem;
+}
+
+.col{
+    padding-top: 14px; 
+}
+
 .form-control{
-    width: 23rem !important;
+    width: 21rem !important;
 }
+
+.selected {
+    background-color: #007bff; 
+    color: #fff;
+}
+
+.email_box{
+    margin-top: 5rem;
+    margin-left: 5rem;
+}
+
+
+#mobileno{
+    margin-top: 1rem;
+}
+
 .footer-text{
-    margin-top: 8rem;
+    margin-top: 7rem;
     margin-left: 5rem;
 }
 .forget-password{
@@ -16,5 +46,38 @@
     cursor: pointer;
 }
 section{
-    height: 113vh;
+    height: 100vh;
+}
+
+.mobileno_box{
+    margin-top: 6rem;
+    margin-left: 5rem;
+}
+
+.submit_btn{
+    margin-top: 2rem;
+    padding: 6px 9rem;
+    border-radius: 11px;
+    background-color: #007bff; 
+    color: white;
+    font-size: 1rem;
+}
+
+.modal{
+    margin-top: 10rem;
+    margin-left: 21rem;
+}
+
+.modal-body{
+    margin: 2rem 0px;
+    display: flex;  
+    gap: 3rem;
+    margin-left: 2rem;
+}
+
+.otp-input input {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    padding-left: 1.5rem;
 }

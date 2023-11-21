@@ -15,7 +15,6 @@
       </ul>
      </div>
   </div>  
-  
   </div>
 
   <div class="content" [ngClass]="{'shifted': isSidebarOpen}">
@@ -28,9 +27,8 @@
       <div class="dropdown" (click)="toggleDropdown()">
         <button class="user_btn"><i class="fa-solid fa-user" style="color: whitesmoke;"></i></button>
         <div [class.show]="isDropdownOpen" class="dropdown-menu">
-          <h3> {{email}}  </h3>
          <div class="un_container">
-          <h3> Hi, {{username}}!  </h3>
+          <h3> Welcome, {{username}}!  </h3>
           <button class="logout_btn" (click)="logout()"> Logout </button> 
          </div>
         </div>
@@ -39,7 +37,7 @@
   </div>
     <div class="right_side">
       <h1> home </h1>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque neque quae nobis esse itaque sit nihil, autem voluptates omnis eveniet atque voluptatibus debitis, labore iste quo. Inventore nulla natus eveniet. </p>
+      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque neque quae nobis esse itaque sit nihil, autem voluptates omnis eveniet atque voluptatibus debitis, labore iste quo. Inventore nulla natus eveniet. </p>      
     </div>
     </div>
 

@@ -5,14 +5,19 @@ public class UserDTO {
 	private String username;
 	private String email;
 	private String password;
+	private String mobileno;
 	private boolean status;
+	private String userOtp;
 	
-	public UserDTO(String username, String email, String password, boolean status) {
+
+	public UserDTO(String username, String email, String password, String mobileno, boolean status, String userOtp) {
 		super();
 		this.username = username;
 		this.email = email;
 		this.password = password;
+		this.mobileno = mobileno;
 		this.status = status;
+		this.userOtp = userOtp;
 	}
 
 	public UserDTO() {
@@ -43,6 +48,15 @@ public class UserDTO {
 		this.password = password;
 	}
 	
+	public String getMobileno() {
+		return mobileno;
+	}
+
+	public void setMobileno(String mobileno) {
+		this.mobileno = mobileno;
+	}
+
+	
 	public boolean isStatus() {
 		return status;
 	}
@@ -50,13 +64,21 @@ public class UserDTO {
 	public void setStatus(boolean status) {
 		this.status = status;
 	}
+	
+	
 
+	public String getUserOtp() {
+		return userOtp;
+	}
 
+	public void setUserOtp(String userOtp) {
+		this.userOtp = userOtp;
+	}
 
 	@Override
 	public String toString() {
-		return "UserDTO [ username=" + username + ", email=" + email + ", password=" + password
-				+ "]";
+		return "UserDTO [username=" + username + ", email=" + email + ", password=" + password + ", mobileno="
+				+ mobileno + ", status=" + status + ", userOtp=" + userOtp + "]";
 	}
-
+	
 }

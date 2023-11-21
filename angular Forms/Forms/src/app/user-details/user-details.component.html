@@ -1,0 +1,448 @@
+<div class="body">
+
+  <div class="form-selector">
+    <ul>
+      <!-- <li [class.active]="currentForm === 1"> 1 </li>
+    <li [class.active]="currentForm === 2"> 2 </li>
+    <li [class.active]="currentForm === 3"> 3 </li>
+    <li [class.active]="currentForm === 4"> 4 </li> -->
+      <li (click)="currentForm= 1" [class.active]="currentForm === 1"> 1 </li>
+      <li (click)="currentForm= 2" [class.active]="currentForm === 2"> 2 </li>
+      <li (click)="currentForm= 3" [class.active]="currentForm === 3"> 3 </li>
+      <li (click)="currentForm= 4" [class.active]="currentForm === 4"> 4 </li>
+    </ul>
+  </div>
+
+
+  <!-- Personal Details -->
+  <div class="card" *ngIf="currentForm === 1">
+    <section>
+      <form class="Personal_form" [formGroup]="personalDetails">
+
+        <div class="left-container">
+          <label for="state"> Title </label>
+          <select class="form-select fixed-width" formControlName="title" (change)="personalSave()">
+            <option hidden>Select</option>
+            <option> Mr </option>
+            <option> Ms </option>
+          </select>
+
+          <div *ngIf="submitedFlag && personalDetails.controls.title.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.title.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="form-group">
+            <label for="firstname"> FirstName </label>
+            <input type="text" class="form-control fixed-width" id="firstname" (change)="personalSave()"
+              formControlName="firstName">
+          </div>
+          <div *ngIf="submitedFlag && personalDetails.controls.firstName.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.firstName.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+
+          <div class="form-group">
+            <label for="lastname"> LastName </label>
+            <input type="text" class="form-control fixed-width" id="lastname" (change)="personalSave()"
+              formControlName="lastName">
+          </div>
+          <div *ngIf="submitedFlag && personalDetails.controls.lastName.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.lastName.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+
+          <div>
+            <div> Gender </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" value="male" formControlName="gender"
+                (change)="personalSave()">
+              <label class="form-check-label" for="inlineRadio1"> Male </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="gender" value="female" formControlName="gender"
+                (change)="personalSave()">
+              <label class="form-check-label" for="inlineRadio2">Female </label>
+            </div>
+            <div *ngIf="submitedFlag && personalDetails.controls.gender.errors">
+              <div *ngIf="submitedFlag && personalDetails.controls.gender.errors.required">
+                <p style="color: red; font-size: 12px;">This field is required</p>
+              </div>
+            </div>
+          </div><br>
+
+
+          <div class="form-group">
+            <label for="dob"> DOB </label>
+            <input type="date" class="form-control fixed-width" id="dob" formControlName="dob"
+              (change)="personalSave()">
+          </div>
+          <div *ngIf="submitedFlag && personalDetails.controls.title.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.title.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+        </div>
+
+        <div class="right-container">
+          <div class="form-group">
+            <label for="age"> Age </label>
+            <input type="text" class="form-control fixed-width" id="age" formControlName="age"
+              (change)="personalSave()">
+          </div>
+          <div *ngIf="submitedFlag && personalDetails.controls.age.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.age.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+
+          <div class="form-group">
+            <label for="address"> Address </label>
+            <input type="text" class="form-control fixed-width" id="address" formControlName="address"
+              (change)="personalSave()">
+          </div>
+          <div *ngIf="submitedFlag && personalDetails.controls.address.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.address.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+
+          <label for="state"> State </label>
+          <select class="form-select fixed-width" formControlName="state" (change)="personalSave()">
+            <option>Select</option>
+            <option> Andhra Pradesh </option>
+            <option> Gujarat </option>
+            <option> Haryana </option>
+            <option> Karnataka </option>
+            <option> Tamil Nadu </option>
+          </select>
+          <div *ngIf="submitedFlag && personalDetails.controls.state.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.state.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+
+          <label for="country"> Country </label>
+          <select class="form-select fixed-width" formControlName="country" (change)="personalSave()">
+            <option hidden>Select</option>
+            <option> America </option>
+            <option> Canada </option>
+            <option> China </option>
+            <option> France </option>
+            <option> India </option>
+          </select>
+          <div *ngIf="submitedFlag && personalDetails.controls.country.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.country.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+
+          <label for="city"> City </label>
+          <select class="form-select fixed-width" formControlName="city" (change)="personalSave()">
+            <option hidden>Select</option>
+            <option> Vijayawada </option>
+            <option> Ahmedabad </option>
+            <option> Sonipat </option>
+            <option> Bengaluru </option>
+            <option> Chennai </option>
+          </select>
+          <div *ngIf="submitedFlag && personalDetails.controls.city.errors">
+            <div *ngIf="submitedFlag && personalDetails.controls.city.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
+          <br>
+
+          <div>
+            <button class="submit-btn" (click)="personalForm()"> submit & next </button>
+          </div>
+        </div>
+      </form>
+
+    </section>
+  </div>
+
+
+  <!-- Professional Details -->
+
+  <div class="card" *ngIf="currentForm === 2">
+
+    <section>
+
+      <form class="professional_form" [formGroup]="professionalDetails">
+
+        <div class="form-group">
+          <label for="degree"> Degree </label>
+          <input type="text" class="form-control prof_input" id="degree" formControlName="degree" (change)="profSave()">
+        </div>
+        <div *ngIf="submitedFlag && professionalDetails.controls.degree.errors">
+          <div *ngIf="submitedFlag && professionalDetails.controls.degree.errors.required">
+            <p style="color: red; font-size: 12px; margin-left: -9.3rem;">This field is required</p>
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="department"> Department </label>
+          <input type="text" class="form-control prof_input" id="department" formControlName="department"
+            (change)="profSave()">
+        </div>
+        <div *ngIf="submitedFlag && professionalDetails.controls.department.errors">
+          <div *ngIf="submitedFlag && professionalDetails.controls.department.errors.required">
+            <p style="color: red; font-size: 12px; margin-left: -9.3rem;">This field is required</p>
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="specality"> Specality </label>
+          <input type="text" class="form-control prof_input" id="specality" formControlName="specality"
+            (change)="profSave()">
+        </div>
+        <div *ngIf="submitedFlag && professionalDetails.controls.specality.errors">
+          <div *ngIf="submitedFlag && professionalDetails.controls.specality.errors.required">
+            <p style="color: red; font-size: 12px; margin-left: -9.3rem;">This field is required</p>
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="skills"> Specail Skills </label>
+          <input type="text" class="form-control prof_input" id="skills" formControlName="specailSkills"
+            (change)="profSave()">
+        </div>
+        <div *ngIf="submitedFlag && professionalDetails.controls.specailSkills.errors">
+          <div *ngIf="submitedFlag && professionalDetails.controls.specailSkills.errors.required">
+            <p style="color: red; font-size: 12px; margin-left: -9.3rem;">This field is required</p>
+          </div>
+        </div>
+        <br>
+
+        <div class="form-group">
+          <label for="aboutYourself"> About Yourself </label>
+          <input type="text" class="form-control prof_input" id="aboutYourself" formControlName="aboutYourself"
+            (change)="profSave()">
+        </div>
+        <div *ngIf="submitedFlag && professionalDetails.controls.aboutYourself.errors">
+          <div *ngIf="submitedFlag && professionalDetails.controls.aboutYourself.errors.required">
+            <p style="color: red; font-size: 12px; margin-left: -9.3rem;">This field is required</p>
+          </div>
+        </div>
+        <br>
+
+        <div class="buttons">
+          <button class="previous-btn" (click)="goToPreviousForm()"> Previous </button>
+          <button class="submit-btn" (click)="professionalForm()"> Submit & Next </button>
+        </div>
+
+
+      </form>
+    </section>
+  </div>
+
+
+  <!-- Medical Details -->
+
+  <div class="card" *ngIf="currentForm === 3">
+
+    <section>
+
+      <form class="medical_form" [formGroup]="medicalDetails">
+
+        <div>
+
+          <div>
+            <div> Do You Smoke ? </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="smoke" [value]="true" formControlName="smoke"
+                (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio1"> Yes </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="smoke" [value]="false" formControlName="smoke"
+                (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio2"> No </label>
+            </div>
+            <div *ngIf="submitedFlag && medicalDetails.controls.smoke.errors">
+              <div *ngIf="submitedFlag && medicalDetails.controls.smoke.errors.required">
+                <p style="color: red; font-size: 12px;">This field is required</p>
+              </div>
+            </div>
+          </div>
+          <br>
+
+          <div>
+            <div> Do You Drink ? </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="drink" [value]="true" formControlName="drink"
+                (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio1"> Yes </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="drink" [value]="false" formControlName="drink"
+                (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio2"> No </label>
+            </div>
+            <div *ngIf="submitedFlag && medicalDetails.controls.drink.errors">
+              <div *ngIf="submitedFlag && medicalDetails.controls.drink.errors.required">
+                <p style="color: rgba(0, 255, 85, 0.084); font-size: 12px;">This field is required</p>
+              </div>
+            </div>
+          </div><br>
+
+          <div>
+            <div> Do you have any medical conditons ? </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="medicalConditions" [value]="true"
+                formControlName="medicalConditions" (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio1"> Yes </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="medicalConditions" [value]="false"
+                formControlName="medicalConditions" (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio2"> No </label>
+            </div>
+            <div *ngIf="submitedFlag && medicalDetails.controls.medicalConditions.errors">
+              <div *ngIf="submitedFlag && medicalDetails.controls.medicalConditions.errors.required">
+                <p style="color: red; font-size: 12px;">This field is required</p>
+              </div>
+            </div>
+          </div><br>
+
+          <div>
+            <div> Have you had any recent surgeries ? </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="surgeries" [value]="true" formControlName="surgeries"
+                (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio1"> Yes </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="surgeries" [value]="false" formControlName="surgeries"
+                (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio2"> No </label>
+            </div>
+            <div *ngIf="submitedFlag && medicalDetails.controls.surgeries.errors">
+              <div *ngIf="submitedFlag && medicalDetails.controls.surgeries.errors.required">
+                <p style="color: red; font-size: 12px;">This field is required</p>
+              </div>
+            </div>
+          </div><br>
+
+          <div>
+            <div> Are yout taking any medications or <br> undergoing specific treatments ? </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="medicationsOrTreatments" [value]="true"
+                formControlName="medicationsOrTreatments" (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio1"> Yes </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="medicationsOrTreatments" [value]="false"
+                formControlName="medicationsOrTreatments" (change)="medicalSave()">
+              <label class="form-check-label" for="inlineRadio2"> No </label>
+            </div>
+            <div *ngIf="submitedFlag && medicalDetails.controls.medicationsOrTreatments.errors">
+              <div *ngIf="submitedFlag && medicalDetails.controls.medicationsOrTreatments.errors.required">
+                <p style="color: red; font-size: 12px;">This field is required</p>
+              </div>
+            </div>
+          </div><br>
+
+          <div class="buttons">
+            <button class="previous-btn" (click)="goToPreviousForm()"> Previous </button>
+            <button class="submit-btn" (click)="medicalForm()"> Submit & Next </button>
+          </div>
+
+        </div>
+
+      </form>
+
+    </section>
+  </div>
+
+  <div>
+
+    <section>
+
+      <div class="card" *ngIf="currentForm === 4">
+
+        <div class="button_container">
+          <button (click)="goToPreviousForm()"> Previous </button>
+
+          <button (click)="preview()"> Preview </button>
+          <button (click)="submit() "> Submit </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </div>
+
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="btn-close" (click)="closeModal()"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <p> Personal Details</p>
+        <div class="icons">
+          <span class="icon"><i class="fas fa-crown"></i></span>{{formData?.personalDetails?.title}}
+          <span class="icon"><i class="fas fa-user"></i></span>{{formData?.personalDetails?.firstName}}
+          <span class="icon"><i class="fas fa-user"></i></span>{{formData?.personalDetails?.lastName}}
+          <span class="icon"><i class="fas fa-venus-mars"></i></span>{{formData?.personalDetails?.gender}}
+          <span class="icon"><i class="fas fa-calendar-alt"></i></span>{{formData?.personalDetails?.dob}}
+          <span class="icon"><i class="fas fa-birthday-cake"></i></span>{{formData?.personalDetails?.age}}
+          <span class="icon"><i class="fas fa-home"></i></span>{{formData?.personalDetails?.address}}
+          <span class="icon"><i class="fas fa-map-marker-alt"></i></span> {{formData?.personalDetails?.state}}
+          <span class="icon"><i class="fas fa-globe"></i></span>{{formData?.personalDetails?.country}}
+          <span class="icon"><i class="fas fa-city"></i></span>{{formData?.personalDetails?.city}}
+        </div><br>
+
+        <p> Professional Details </p>
+        <div class="icons">
+          <span class="icon"><i class="fas fa-graduation-cap"></i></span>{{formData?.professionalDetails.degree}}
+          <span class="icon"><i class="fas fa-building"></i></span>{{formData?.professionalDetails.department}}
+          <span class="icon"><i class="fas fa-flask"></i></span> {{formData?.professionalDetails.specality}}
+          <span class="icon"><i class="fas fa-tools"></i></span>{{formData?.professionalDetails.specailSkills}}
+          <span class="icon"><i class="fas fa-info-circle"></i></span>{{formData?.professionalDetails.aboutYourself}}
+        </div><br>
+
+        <p> Medical Details </p>
+        <div class="icons">
+          <span class="icon"><i class="fas fa-smoking"></i></span>{{formData?.medicalDetails.smoke}}
+          <span class="icon"><i class="fas fa-cocktail"></i></span>{{formData?.medicalDetails.drink}}
+          <span class="icon"><i class="fas fa-heartbeat"></i></span>{{formData?.medicalDetails.medicalConditions}}
+          <span class="icon"><i class="fas fa-procedures"></i></span> {{formData?.medicalDetails.surgeries}}
+          <span class="icon"><i class="fas fa-pills"></i></span>{{formData?.medicalDetails.medicationsOrTreatments}}
+
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" (click)="closeModal()">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

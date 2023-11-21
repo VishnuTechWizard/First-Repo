@@ -1,9 +1,9 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,OnInit,ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import {  ToastrService } from 'ngx-toastr';
-import { DetailsComponent } from '../details/details.component';
+
 
 @Component({
   selector: 'app-login-page',
@@ -13,6 +13,13 @@ import { DetailsComponent } from '../details/details.component';
 
 export class LoginPageComponent implements OnInit {
   loginForm!: FormGroup;
+  otp1: string = ''; 
+  otp2: string = ''; 
+  otp3: string = ''; 
+  otp4: string = ''; 
+
+  emailSelected = true; 
+  mobilenoSelected = false;
  
 
   constructor(
@@ -20,24 +27,38 @@ export class LoginPageComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private toastr: ToastrService,
-    private detial:DetailsComponent
+    private el: ElementRef
   ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
+      mobileno:['',Validators.required],
       rememberMe: [false], 
     });
 }
+
+selectEmail() {
+  this.emailSelected = true;
+  this.mobilenoSelected = false;
+}
+
+selectMobileNo() {
+  this.emailSelected = false;
+  this.mobilenoSelected = true;
+}
+
+
 onSubmit() {
   const emailControl = this.loginForm.get('email');
   const passwordControl = this.loginForm.get('password');
-
+  
   let FormData = {
     email: emailControl!.value,
     password: passwordControl!.value,
 }
+
 
 const headers = new HttpHeaders({
   Authorization: 'Basic ' + btoa(FormData.email + ':' + FormData.password),
@@ -58,14 +79,13 @@ else if(resultData.message == "Login Success" && resultData.data.status == false
  {
    console.log(FormData);
    localStorage.setItem("username",resultData.data.username);
-   localStorage.setItem("Email",FormData.email);
    localStorage.setItem("userToken",resultData.data.token); 
+   localStorage.setItem("user_id",resultData.data.id);
    this.toastr.success('Login Successfully');
-   this.router.navigate(['/home']);
+   this.router.navigate(['/user-details']);
 }
 else if(resultData.message == "Login Success" && resultData.data.status == true){
   localStorage.setItem("username",resultData.data.username);
-   localStorage.setItem("Email",FormData.email);
   localStorage.setItem("userToken",resultData.data.token);
   this.toastr.success('Login Successfully');
   this.router.navigate(["/dashboard"]);
@@ -82,6 +102,76 @@ else if(resultData.message == "Password Not Match"){
 
 });
 }
+
+
+onSubmit1(){
+
+  const mobilenoControl = this.loginForm.get('mobileno');
+  const mobileno = mobilenoControl!.value;
+
+  if (mobileno) {
+    const data = { mobileno };
+    
+    this.http.post("http://localhost:8080/api/v1/user/sendOtp", data).subscribe(
+      (resultData: any) => {
+        if (resultData.message ===  "Otp Send Sucessfully") {
+          this.toastr.success("OTP sent successfully");
+          localStorage.setItem("mobileno",mobileno)
+          const modalDiv=document.getElementById('myModal');
+          if(modalDiv!=null){
+            modalDiv.style.display='block'; 
+          }
+        } else {
+          this.toastr.warning("Check your number")
+          console.log("Failed to send OTP");
+        }
+      },
+
+    );
+  } else {
+    this.toastr.error("Mobile Number Required")
+    console.log("Mobile number is empty or not provided.");
+  }
+
+ }
+
+
+
+otpSubmit(){
+
+  let otpValue = this.otp1 + this.otp2 + this.otp3 + this.otp4;
+
+  let otpData ={
+    mobileno:localStorage.getItem("mobileno"),
+    userOtp:otpValue
+  }
+
+  console.log(otpData);
+
+  this.http.post("http://localhost:8080/api/v1/user/verifyOtp",otpData).subscribe((resultData:any)=>{
+
+if(resultData.message == "invalid Otp"){
+ this.toastr.error("invalid Otp")
+}
+
+else if(resultData.data.status == false){
+  this.toastr.success("LoginSucessfully")
+  localStorage.setItem("username",resultData.data.username);
+  localStorage.setItem("userToken",resultData.data.token); 
+  this.router.navigate(['/user-details']);
+}
+
+else if (resultData.data.status == true){
+  this.toastr.success("LoginSucessfully")
+  localStorage.setItem("username",resultData.data.username);
+  localStorage.setItem("userToken",resultData.data.token); 
+  this.router.navigate(['/dashboard']);
+}
+
+})
+
+}
+
 
 }
 
