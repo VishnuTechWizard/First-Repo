@@ -1,37 +1,86 @@
-<div class="bg-dark">
-<div class="container">
-    <h2>Registration Form</h2>
-    <form [formGroup]="registrationForm" >
+<div style="background: #e8f6ff;">
+  <div class="container">
+    <div class="form_container">
+      <div class="image_container">
+        <img src="../../assets/images/Register Image.jpg" alt="Sample photo" class="img-fluid" />
+      </div>
 
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text"  class="form-control" id="username"   formControlName="username">
-      </div><br>
+      <div class="forms">
+        <h2>Registration Form</h2>
+        <form [formGroup]="registrationForm">
 
-      <div class="form-group">
-        <label for="email">Email </label>
-        <input type="email" class="form-control" id="email" formControlName="email"  >
-      </div><br>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" formControlName="username">
+            
+          <div *ngIf="submitedFlag && registrationForm.controls.username.errors">
+            <div *ngIf="submitedFlag && registrationForm.controls.username.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+          </div>
 
-      <div class="form-group">
-        <label for="password"> Password </label>
-        <input type="password"  class="form-control" id="password" formControlName="password" required  >
-      </div><br>
+          </div>
 
-      <div class="form-group">
-        <label for="mobileno"> Mobileno </label>
-        <input type="tel"  class="form-control" id="mobileno" formControlName="mobileno" required >
-      </div><br>
 
-    
-      <div class="d-grid gap-2">
-      <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+
+          <div class="form-group">
+            <label for="email">Email </label>
+            <input type="email" class="form-control" id="email" formControlName="email">
+
+            <div *ngIf="submitedFlag && registrationForm.controls.email.errors">
+              <div *ngIf="submitedFlag && registrationForm.controls.email.errors.required">
+                <p style="color: red; font-size: 12px;">This field is required</p>
+              </div>
+              <div *ngIf="submitedFlag && registrationForm.controls.email.errors.email">
+                <p style="color: red; font-size: 12px;">Enter a valid email address</p>
+              </div>
+            </div>
+
+          </div>
+          
+
+          <div class="form-group">
+            <label for="password"> Password </label>
+            <input type="password" class="form-control" id="password" formControlName="password" >
+
+          <div *ngIf="submitedFlag && registrationForm.controls.password.errors">
+            <div *ngIf="submitedFlag && registrationForm.controls.password.errors.required">
+              <p style="color: red; font-size: 12px;">This field is required</p>
+            </div>
+            <div *ngIf="submitedFlag && registrationForm.controls.password.errors.minlength">
+              <p style="color: red; font-size: 12px;">Password must be at least 6 characters</p>
+            </div>
+          </div>
+
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="mobileno"> Mobileno </label>
+            <input type="tel" class="form-control" id="mobileno" formControlName="mobileno" required>
+
+            <div *ngIf="submitedFlag && registrationForm.controls.mobileno.errors">
+              <div *ngIf="submitedFlag && registrationForm.controls.mobileno.errors.required">
+                <p style="color: red; font-size: 12px;">This field is required</p>
+              </div>
+            </div>
+
+          </div>
+
+ 
+
+ 
+          <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+
+          <div class="login">
+            Already Have an Account? <a routerLink="../login">Login.</a>
+          </div>
+
+        </form>
+
+      </div>
+
     </div>
-
-    <div class="login">
-        Already Have an Account? <a routerLink="../login">Login.</a>
-    </div>
-
-    </form>
   </div>
 </div>

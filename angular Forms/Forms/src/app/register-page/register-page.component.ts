@@ -11,9 +11,10 @@ import {  ToastrService } from 'ngx-toastr';
 })
 
 
-export class RegisterPageComponent implements OnInit {
-  registrationForm!: FormGroup;
+export class RegisterPageComponent  {
+  registrationForm:any;
   userId!: String;
+  submitedFlag: boolean = false;
   
   constructor(private formBuilder: FormBuilder,private router: Router,private http: HttpClient,  private toastr: ToastrService) {
     
@@ -21,7 +22,6 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = this.formBuilder.group({
-      id:[null],
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -31,30 +31,29 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onSubmit() {
+
+    this.submitedFlag = true;
+
     const usernameControl = this.registrationForm.get('username');
     const mobilenoControl = this.registrationForm.get('mobileno');
     const emailControl = this.registrationForm.get('email');
     const passwordControl = this.registrationForm.get('password');
 
-    // console.log(this.registrationForm.invalid);
+    console.log(this.registrationForm.invalid);
     
     let UserData = {
-        id:this.userId,
-        username: usernameControl!.value,
-        email: emailControl!.value,
-        password: passwordControl!.value,
-        mobileno:mobilenoControl!.value,
+        // username: usernameControl!.value,
+        // email: emailControl!.value,
+        // password: passwordControl!.value,
+        // mobileno:mobilenoControl!.value,
+        // username: this.registrationForm.username.value
     };
+
     
-    if (this.registrationForm.invalid) {
-      Object.values(this.registrationForm.controls).forEach((control) => {
-        control.markAsTouched();
-      });
-      
-      this.toastr.warning("Required fields")
-      
-    } else {
-      this.http.post("http://localhost:8080/api/v1/user/save",UserData).subscribe((resultData: any)=>
+    
+ if(this.registrationForm.valid) {
+
+      this.http.post("http://localhost:8080/api/v1/user/save",this.registrationForm.value).subscribe((resultData: any)=>
       {
         console.log(resultData);
         
@@ -70,7 +69,21 @@ export class RegisterPageComponent implements OnInit {
           
            }
       });
+
+
     }
+
+    else{
+      console.log("Invalid");
+      
+    }
+
+// console.log(this.registrationForm.value);
+
+
+
+
+
 
 
 }

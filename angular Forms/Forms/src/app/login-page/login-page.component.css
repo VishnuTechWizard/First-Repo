@@ -1,71 +1,113 @@
 
-.card{
-    height: 100vh;
-    background-color: antiquewhite;
+.container{
+    padding: 1rem 3rem 1rem 7rem;
 }
 
-.login{
-    margin-top: 2rem;
-    margin-left: 14rem;
+.logo_container{
+    background: #00bcd2;
+    width: 13rem;
+    height: 5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 6rem;
+    padding: 1rem;
+
 }
 
-.logintype{
-    margin-top: 3rem;
-    margin-left: 5rem;
+.logo{
+    width: 9rem;
+    height: 3rem;
 }
 
-.col{
-    padding-top: 14px; 
+.logo_text{
+    padding: 13px;
+    font-size: 26px;
+    color: #fff;
+    letter-spacing: 4px;
+    font-family: auto;
+
+}
+
+.forms{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 1rem;
 }
 
 .form-control{
     width: 21rem !important;
 }
 
+.card-body{
+    margin-top: 5px;
+    /* margin-left: 4rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_container{
+    display: flex;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+
+}
+
+.img-fluid{
+    width: 34rem;
+    height: 38rem;
+    /* clip-path: circle(98% at 37rem 24%);  */
+    clip-path: circle(99% at 36rem 28%);
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
 .selected {
-    background-color: #007bff; 
+    background-color: #007bff;
     color: #fff;
 }
 
-.email_box{
-    margin-top: 5rem;
-    margin-left: 5rem;
+.email_btn, .mobile_btn{
+    border: none;
+
 }
 
-
-#mobileno{
-    margin-top: 1rem;
-}
-
-.footer-text{
-    margin-top: 7rem;
-    margin-left: 5rem;
-}
-.forget-password{
-    margin-left: 7rem;
-    cursor: pointer;
-}
-section{
-    height: 100vh;
-}
-
-.mobileno_box{
-    margin-top: 6rem;
-    margin-left: 5rem;
+.image_container{
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    background: white; 
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
 }
 
 .submit_btn{
-    margin-top: 2rem;
-    padding: 6px 9rem;
+    padding: 8px 9rem;
     border-radius: 11px;
     background-color: #007bff; 
     color: white;
     font-size: 1rem;
+    margin-bottom: 2rem;
+    border: none;
+    /* margin-top: 2rem; */
+
+}
+
+.footer-text{
+    margin-left: 4rem;
+}
+
+.forget-password{
+    margin-left: 12.50rem;
+    cursor: pointer;
+    color: #233099;
 }
 
 .modal{
-    margin-top: 10rem;
-    margin-left: 21rem;
+    margin-top: 11rem;
+    margin-left: -14rem;
 }
 
 .modal-body{
@@ -80,4 +122,4 @@ section{
     height: 4rem;
     font-size: 2rem;
     padding-left: 1.5rem;
-}
+} 

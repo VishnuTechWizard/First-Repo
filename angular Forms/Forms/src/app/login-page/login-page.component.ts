@@ -12,7 +12,7 @@ import {  ToastrService } from 'ngx-toastr';
 })
 
 export class LoginPageComponent implements OnInit {
-  loginForm!: FormGroup;
+  loginForm:any ;
   otp1: string = ''; 
   otp2: string = ''; 
   otp3: string = ''; 
@@ -20,6 +20,7 @@ export class LoginPageComponent implements OnInit {
 
   emailSelected = true; 
   mobilenoSelected = false;
+  submitedFlag:boolean = false;
  
 
   constructor(
@@ -51,6 +52,9 @@ selectMobileNo() {
 
 
 onSubmit() {
+
+  this.submitedFlag=true;
+
   const emailControl = this.loginForm.get('email');
   const passwordControl = this.loginForm.get('password');
   
@@ -72,7 +76,9 @@ this.http.get("http://localhost:8080/api/v1/user/login",{headers}).subscribe((re
 }
 
 else if(resultData.message == "Email and Password are required"){
-  this.toastr.warning('Email and Password are required');
+  // this.toastr.warning('Email and Password are required');
+  console.log("invalid");
+  
    }
 
 else if(resultData.message == "Login Success" && resultData.data.status == false)
@@ -101,10 +107,17 @@ else if(resultData.message == "Password Not Match"){
 }
 
 });
+
+
+
 }
 
 
 onSubmit1(){
+
+  
+  this.submitedFlag=true;
+
 
   const mobilenoControl = this.loginForm.get('mobileno');
   const mobileno = mobilenoControl!.value;
@@ -129,8 +142,9 @@ onSubmit1(){
 
     );
   } else {
-    this.toastr.error("Mobile Number Required")
-    console.log("Mobile number is empty or not provided.");
+    console.log("invalid");
+    
+
   }
 
  }
@@ -171,6 +185,8 @@ else if (resultData.data.status == true){
 })
 
 }
+
+
 
 
 }

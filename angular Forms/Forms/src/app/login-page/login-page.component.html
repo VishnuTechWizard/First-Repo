@@ -1,65 +1,103 @@
+<div style="background: #e8f6ff;">
+  <div class="container">
 
-          <div class="card card-registration">
-            <div class="row g-0">
-              <div class="col-xl-6 d-none d-xl-block" style="height: 37.55rem">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
-                  alt="Sample photo" class="img-fluid"style="height: 99.9vh; width: 41rem;">        
+    <div class="form_container">
+
+      <div class="forms">
+        <div class="logo_container">
+          <h4 class="logo_text">IKSANA</h4>
+        </div>
+
+
+        <form [formGroup]="loginForm">
+
+          <div class="card-body text-black">
+            <h2 class="text-uppercase login">Login</h2>
+
+            <div class="logintype mt-2">
+              <button (click)="selectEmail()" class="btn btn-md btn-outline-primary me-3"
+                [ngClass]="{ 'selected': emailSelected }"> Email </button>
+              <button (click)="selectMobileNo()" class="btn btn-md btn-outline-primary"
+                [ngClass]="{ 'selected': mobilenoSelected }"> Mobile No </button>
+            </div>
+
+            <div *ngIf="emailSelected" class="email_box mt-4">
+              
+              <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email ID </label>
+                <input type="text" id="email" class="form-control form-control-lg" formControlName="email" />
+
+                <div *ngIf="submitedFlag && loginForm.controls.email.errors">
+                  <div *ngIf="submitedFlag && loginForm.controls.email.errors.required">
+                    <p style="color: red; font-size: 12px;">This field is required</p>
+                  </div>
+                  <div *ngIf="submitedFlag && loginForm.controls.email.errors.email">
+                    <p style="color: red; font-size: 12px;">Enter a valid email address</p>
+                  </div>
+                </div>
+
               </div>
-              <div class="col-xl-6">
-                <form [formGroup]="loginForm">
-                  <div class="card-body text-black">
-                    <h3 class="text-uppercase login">Login</h3>
-                    <div class="logintype">
-                      <button (click)="selectEmail()"  [ngClass]="{ 'selected': emailSelected }"> Email </button>
-                      <button (click)="selectMobileNo()"  [ngClass]="{ 'selected': mobilenoSelected }" > Mobile No </button>
-                    </div>
-                  <div *ngIf="emailSelected" class="email_box">
-                    <div class="form-outline mb-4">
-                      <label class="form-label" for="email">Email ID </label>
-                      <input type="text" id="email" class="form-control form-control-lg" formControlName="email" />
-                    </div>
-                    <div class="form-outline mb-4">
-                      <label class="form-label" for="password">Password</label>
-                      <input type="password" id="password" class="form-control form-control-lg" formControlName="password" />
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" formControlName="rememberMe" />
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                      <span class="forget-password"  routerLink="/forgot-password">Forgot password?</span>
-                    </div>
-                    <br>
+   
 
-                    <button  class="submit_btn" (click)="onSubmit()" >Submit</button>
+              <div class="form-outline mb-4">
+                <label class="form-label" for="password">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg" formControlName="password" />
 
-                    <div class="footer-text">
-                      Don't Have An Account? <a routerLink="../register">Sign up</a>
-                    </div>
+                <div *ngIf="submitedFlag && loginForm.controls.password.errors">
+                  <div *ngIf="submitedFlag && loginForm.controls.password.errors.required">
+                    <p style="color: red; font-size: 12px;">This field is required</p>
                   </div>
+                </div>
 
-                    <div *ngIf="mobilenoSelected" class="mobileno_box">
-                    <div class="form-group" >
-                   <label for="mobileno">Mobile No </label>
-                      <input type="tel"  class="form-control" id="mobileno"  formControlName="mobileno"><br><br>
-                      <button class="submit_btn" (click)="onSubmit1()" >Get Otp </button>
+              </div>
 
-                    <div class="footer-text">
-                      Don't Have An Account? <a routerLink="../register">Sign up</a>
-                    </div>
-                     </div>
-                    </div>
+              <div class="form-check">
+                <span class="forget-password" routerLink="/forgot-password">Forgot password?</span>
+              </div>
+              <br>
 
-                  </div>
-                </form>
+              <button class="submit_btn" (click)="onSubmit()">Submit</button>
+
+              <div class="footer-text">
+                Don't Have An Account? <a routerLink="../register">Sign up</a>
               </div>
             </div>
+
+            <div *ngIf="mobilenoSelected" class="mobileno_box mt-4">
+              <div class="form-group">
+                <label for="mobileno" class="form-label">Mobile No </label>
+                <input type="tel" class="form-control" id="mobileno" formControlName="mobileno">
+                <div *ngIf="submitedFlag && loginForm.controls.mobileno.errors">
+                  <div *ngIf="submitedFlag && loginForm.controls.mobileno.errors.required">
+                    <p style="color: red; font-size: 12px;">This field is required</p>
+                  </div>
+                </div>
+              </div>
+ 
+                 <button style="margin-top: 2rem;" class="submit_btn" (click)="onSubmit1()">Get Otp </button>
+
+                <div class="footer-text">
+                  Don't Have An Account? <a routerLink="../register">Sign up</a>
+                </div>
+       
+            </div>
+
           </div>
+        </form>
 
 
+      </div>
+
+      <div class="image_container">
+        <img src="../../assets/images/image.jpg" alt="Sample photo" class="img-fluid" />
+      </div>
 
 
+    </div>
+  </div>
+</div>
 
-
-  <!-- The Modal -->
+<!-- The Modal -->
 <div class="modal" id="myModal">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -69,26 +107,25 @@
         <!-- <button type="button" class="btn-close"  (click)="closeModal()" ></button> -->
       </div>
 
-        <!-- Modal body -->
-        <div class="modal-body">
-          <div class="otp-input">
-            <input type="text" maxlength="1"  [(ngModel)]="otp1"  />
-          </div>
-          <div class="otp-input">
-            <input type="text" maxlength="1" [(ngModel)]="otp2" />
-          </div>
-          <div class="otp-input">
-            <input type="text" maxlength="1"  [(ngModel)]="otp3" />
-          </div>
-          <div class="otp-input">
-            <input type="text" maxlength="1" [(ngModel)]="otp4" />
-          </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="otp-input">
+          <input type="text" maxlength="1" [(ngModel)]="otp1" />
         </div>
+        <div class="otp-input">
+          <input type="text" maxlength="1" [(ngModel)]="otp2" />
+        </div>
+        <div class="otp-input">
+          <input type="text" maxlength="1" [(ngModel)]="otp3" />
+        </div>
+        <div class="otp-input">
+          <input type="text" maxlength="1" [(ngModel)]="otp4" />
+        </div>
+      </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="otpSubmit()" > Next </button>
-        <!-- <button type="button" class="btn btn-danger"  (click)="closeModal()">Close</button> -->
+        <button type="button" class="btn btn-success" (click)="otpSubmit()"> Next </button>
       </div>
 
     </div>
